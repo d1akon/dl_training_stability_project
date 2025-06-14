@@ -24,8 +24,8 @@ This project explores effective training practices in Deep Learning using PyTorc
 ### Clone and Run
 
 ```bash
-git clone https://github.com/your_username/dl-training-stability-project.git
-cd dl-training-stability-project
+git clone https://github.com/d1akon/dl_training_stability_project.git
+cd dl_training_stability_project
 ```
 
 Then run training:
@@ -61,5 +61,41 @@ gamma: 2.0              #--- Focal Loss parameter
 use_augmentation: true
 clip_grad_norm: 5.0
 ```
+## Evaluation
+
+Metrics saved per epoch:
+- Loss
+- Accuracy
+- F1 Score (macro)
+- Precision & Recall
+
+![image](https://github.com/user-attachments/assets/b4dc071b-003f-431b-abb2-7adb8c297bcf)
+
+## Ⓜ Model Architecture
+
+```
+Input: [B, 3, 32, 32]
+|
+BasicBlock1 -> [B, 32, 32, 32]
+|
+BasicBlock2 (downsample) -> [B, 64, 16, 16]
+|
+BasicBlock3 (downsample) -> [B, 128, 8, 8]
+|
+GlobalAvgPool -> [B, 128, 1, 1]
+|
+Flatten + Dropout -> [B, 128]
+|
+Linear -> [B, 10]
+```
+![image](https://github.com/user-attachments/assets/8d6f3c3d-279d-4312-a389-024748559f25)
+
+And also each BasicBlock internal architecture:
+
+![image](https://github.com/user-attachments/assets/c72757ea-d0f2-4216-ac6d-6b0a6cde5cc2)
+
+## References
+- Focal Loss: https://arxiv.org/abs/1708.02002  
+- ResNet: https://arxiv.org/abs/1512.03385  
 
 
