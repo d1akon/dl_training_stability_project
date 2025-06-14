@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+
+.ipynb_checkpoints/
+*.ipynb
+
+
+.env
+.venv
+env/
+venv/
+mlops-env/
+
+
+data/*
+!data/cifar10_noise_loader.py  
+
+#----- models
+checkpoints/*
+!checkpoints/best_model.pth
+
+#----- Logs / metrics 
+#*.csv
+
